@@ -1,0 +1,160 @@
+#ifndef CIRCULO_H
+#define CIRCULO_H
+
+/**
+ * @brief Cria um circulo com atributos especificos.
+ * 
+ * @param id identificador.
+ * @param x coordenada x do círculo.
+ * @param y coordenada y do círculo.
+ * @param raio raio do círculo.
+ * @param corP cor de preenchimento do círculo.
+ * @param corB cor da borda do círculo.
+ * 
+ * @return retorna um ponteiro para "CIRCULO".
+ * 
+ * @details
+ * O arquivo circulo.h tem as definições de métodos de uma estrutura abstrata que representa um círculo seguindo os padrões svg, que será utilizado em um plano bidimensional
+ * Sendo identificado por um id, contendo floats que representam suas coordenadas e tamanho do raio, assim como strings que representam sua cor de borda e preenchimento.
+ * 
+*/
+
+
+typedef void* CIRCULO;
+
+
+CIRCULO cria_circulo(int id, float x, float y, float raio, char* corP, char* corB)
+
+/**
+ * @brief Faz o ID do círculo.
+ * 
+ * @param c o círculo que vai possuir o ID.
+ * 
+ * @return O id da forma.  
+ * 
+*/
+
+int getIDCirculo(CIRCULO c)
+
+/**
+ * @brief Faz o valor da coordenada x do círculo.
+ * 
+ * @param c O círculo que vai possuir a coordenada x.
+ * 
+ * @return A coordenada x da forma.  
+ * 
+*/
+
+float getXCirculo(CIRCULO c)
+
+/**
+ * @brief Faz o valor da coordenada y do círculo.
+ * 
+ * @param c O circulo que vai possuir a coordenada y.
+ * 
+ * @return A coordenada y da forma.  
+ * 
+*/
+
+float getYCirculo(CIRCULO c)
+
+/**
+ * @brief Faz o valor do raio do círculo.
+ * 
+ * @param c O circulo que vai possuir o seu raio.
+ * 
+ * @return O raio da forma.  
+ * 
+*/
+
+float getRaioCirculo(CIRCULO c)
+
+/**
+ * @brief Faz a cor de preenchimento do círculo.
+ * 
+ * @param c O circulo que vai possuir a cor de preenchimento.
+ * 
+ * @return String da cor de preenchimento da forma.  
+ * 
+*/
+
+char* getCorPCirculo(CIRCULO c)
+
+/**
+ * @brief Faz a cor da borda do círculo.
+ * 
+ * @param c O circulo que vai possuir a cor da borda.
+ * 
+ * @return String da cor da borda da forma.  
+ * 
+*/
+
+char* getCorBCirculo(CIRCULO c)
+
+/**
+ * @brief Faz o calculo da área do círculo.
+ * 
+ * @param c O círculo.
+ * 
+ * @return O valor da área da forma.  
+ * 
+*/
+
+float getAreaCirculo(CIRCULO c)
+
+/**
+ * @brief Define o ID do círculo.
+ * 
+ * @param c o círculo com o ID definido.
+ * @param id Novo ID definido.
+ */
+
+void setIDCirculo(CIRCULO c, int id)
+
+/**
+ * @brief Define a coordenada X do círculo.
+ * 
+ * @param c o círculo com a coordenada X definido.
+ * @param x Novo valor da coordenada X definido.
+ */
+
+
+void setXCirculo(CIRCULO c, float x)
+
+/**
+ * @brief Define a coordenada Y do círculo.
+ * 
+ * @param c o círculo com a coordenada Y definido.
+ * @param y Novo valor da coordenada Y definido.
+ */
+
+void setYCirculo(CIRCULO c, float y)
+
+/**
+ * @brief Define o raio do círculo.
+ * 
+ * @param c o círculo com o raio definido.
+ * @param raio Novo valor do raio definido.
+ */
+
+void setRaioCirculo(CIRCULO c, float raio)
+
+/**
+ * @brief Define a cor de preenchimento do círculo.
+ * 
+ * @param c o círculo com a cor de preencimento definido.
+ * @param corP Novo valor para a cor de preenchimento definido.
+ */
+
+void setCorPCirculo(CIRCULO c, char* corP)
+
+/**
+ * @brief Define a cor da borda do círculo.
+ * 
+ * @param c o círculo com a cor da borda definido.
+ * @param corB Novo valor para a cor da borda definido.
+ */
+
+void setCorBCirculo(CIRCULO c, char* corB)
+
+#endif
