@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
+#define M_PI 3.14159265358979323846
 #include "circulo.h"
 
 typedef struct {
@@ -39,6 +39,19 @@ CIRCULO cria_circulo(int id, float x, float y, float raio, char* corP, char* cor
     strcpy(c->corB, corB);
 
     return c;
+}
+
+void destroiCirculo(CIRCULO c) {
+    Circulo* circ = (Circulo*)c;
+    if (circ != NULL) {
+        if (circ->corP != NULL) {
+            free(circ->corP);
+        }
+        if (circ->corB != NULL) {
+            free(circ->corB);
+        }
+        free(circ);
+    }
 }
 
 int getIDCirculo(CIRCULO c) {

@@ -30,7 +30,7 @@
 
 /**
  * @brief Faz o ID do retangulo.
- *
+ * 
  * @param r o retângulo que vai possuir o ID.
  * @return O id da forma.
  */
@@ -147,5 +147,12 @@ void setCorPRetangulo(RETANGULO r, char* corP);
  * @param corB Nova string da cor da borda definido.
  */
 void setCorBRetangulo(RETANGULO r, char* corB);
+
+/**
+ * @brief Libera a memória alocada para o retângulo e suas strings internas.
+ * 
+ * @param r O TAD Retângulo a ser destruído.
+ */
+void destroiRetangulo(RETANGULO r);
 
 #endif

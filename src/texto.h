@@ -190,4 +190,20 @@ void setTxtoTexto(TEXTO t, char* conteudo);
   */
  void setFontSizeTexto(TEXTO t, char* fsize);
 
+ /**
+ * @brief Libera a memória alocada para o texto e suas strings internas.
+ * @param t O TAD Texto a ser destruído.
+ */
+void destroiTexto(TEXTO t);
+
+/**
+ * @brief Calcula as coordenadas do segmento induzido pelo texto
+ * @param t O texto
+ * @param x1 Ponteiro para armazenar x1 do segmento
+ * @param y1 Ponteiro para armazenar y1 do segmento
+ * @param x2 Ponteiro para armazenar x2 do segmento
+ * @param y2 Ponteiro para armazenar y2 do segmento
+ */
+void obtemSegmentoTexto(TEXTO t, double *x1, double *y1, double *x2, double *y2);
+
 #endif

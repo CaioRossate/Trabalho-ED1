@@ -40,6 +40,19 @@ RETANGULO cria_retangulo(int id, float x, float y, float w, float h, char* corP,
     return r;
 }
 
+void destroiRetangulo(RETANGULO r) {
+    Retangulo* ret = (Retangulo*)r;
+    if (ret != NULL) {
+        if (ret->corP != NULL) {
+            free(ret->corP);
+        }
+        if (ret->corB != NULL) {
+            free(ret->corB);
+        }
+        free(ret);
+    }
+}
+
 int getIDRetangulo(RETANGULO r) {
     return ((Retangulo*)r)->id;
 }

@@ -27,8 +27,6 @@
 */
 
 
-
-
 CIRCULO cria_circulo(int id, float x, float y, float raio, char* corP, char* corB);
 
 /**
@@ -156,5 +154,10 @@ void setCorPCirculo(CIRCULO c, char* corP);
 
 void setCorBCirculo(CIRCULO c, char* corB);
 
+/**
+ * @brief Libera a memória alocada para o círculo.
+ * @param c ponteiro do círculo a ser destruído.
+ */
+void destroiCirculo(CIRCULO c);
 
 #endif
