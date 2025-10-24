@@ -168,7 +168,7 @@ void cmd_shft(int idDisp, char lado, int n, FILE *txt) {
     }
 }
 
-void cmd_dsp(int idDisp, float dx, float dy, FILA arena, FILE *txt, Estatisticas *stats) { 
+void cmd_dsp(int idDisp, float dx, float dy, FILA arena, FILE *txt, Estatisticas *stats, char vi, FILA chao) { 
     if (idDisp < 0 || idDisp >= MAX_LANCADORES || lancadores[idDisp] == NULL) {
         if (txt) fprintf(txt, "[DSP] ERRO: Disparador %d não existe\n\n", idDisp);
         return;
@@ -189,12 +189,22 @@ void cmd_dsp(int idDisp, float dx, float dy, FILA arena, FILE *txt, Estatisticas
     moveForma(forma, tipo, dx + xLancador, dy + yLancador);
     enfileira(arena, forma, tipo);
     
+    if (vi == 'v') {
+        LINHA linhaX = criaLinha(0, xLancador, yLancador + dy, xLancador + dx, yLancador + dy, "#FF0000");
+
+        LINHA linhaY = criaLinha(0, xLancador + dx, yLancador, xLancador + dx, yLancador + dy, "#FF0000");
+
+        enfileira(chao, linhaX, 'l');
+        enfileira(chao, linhaY, 'l');
+      }
+
     stats->totalDisparos++;
     
     if (txt) {
         fprintf(txt, "[DSP] Disparo realizado do disparador %d\n", idDisp);
         fprintf(txt, "Tipo: '%c', Deslocamento: (%.2f, %.2f)\n\n", tipo, dx, dy);
     }
+
 }
 
 void cmd_rjd(int idDisp, char lado, float dx, float dy, float ix, float iy, FILA arena, FILE *txt, Estatisticas *stats){
@@ -416,8 +426,9 @@ void processarQry(const char *pathQry, const char *pathTxt, FILA chao) {
             else if (strcmp(comando, "dsp") == 0) {
                 int idDisp;
                 float dx, dy;
-                sscanf(linha, "dsp %d %f %f", &idDisp, &dx, &dy);
-                cmd_dsp(idDisp, dx, dy, arena, txtFile, &stats);
+                char vi;
+                sscanf(linha, "dsp %d %f %f %c", &idDisp, &dx, &dy, &vi);
+                cmd_dsp(idDisp, dx, dy, arena, txtFile, &stats, vi, chao);
             }
             else if (strcmp(comando, "rjd") == 0) {
                 int idDisp;
