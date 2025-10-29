@@ -101,13 +101,6 @@ void desenhaArenaSvg(FILE *svgFile, FILA fila) {
     }
 }
 
-void anotaEsmagamentoSvg(FILE *svgFile, double x, double y) {
-    if (svgFile == NULL) return;
-
-    // asterisco vermelho esmagamento.
-    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"%.2f\" fill=\"red\" font-size=\"20\" text-anchor=\"middle\">*</text>\n",x, y + 5.0); 
-}
-
 void finalizaSvg(FILE *svgFile) {
     if (svgFile == NULL) return;
     fprintf(svgFile, "</svg>\n");

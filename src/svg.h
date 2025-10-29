@@ -61,14 +61,6 @@ void desenhaTextoSvg(FILE *svgFile, TEXTO texto);
 void desenhaArenaSvg(FILE *svgFile, FILA fila);
 
 /**
- * @brief Adiciona uma marcação de esmagamento (asterisco vermelho) ao SVG.
- * @param svgFile Ponteiro para o arquivo SVG.
- * @param x Coordenada X do local do esmagamento.
- * @param y Coordenada Y do local do esmagamento.
- */
-void anotaEsmagamentoSvg(FILE *svgFile, double x, double y);
-
-/**
  * @brief Finaliza o arquivo SVG, fechando a tag </svg>.
  * @param svgFile Ponteiro para o arquivo SVG.
  */
