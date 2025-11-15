@@ -95,8 +95,14 @@ int main(int argc, char *argv[]) {
     strncpy(nomeBaseGeo, nomeArquivoGeo, sizeof(nomeBaseGeo)-1);
     removerExtensao(nomeBaseGeo);
     
-    char caminhoSvgGeo[TAM_MAX_CAMINHO];
-    snprintf(caminhoSvgGeo, TAM_MAX_CAMINHO, "%s%s.svg", diretorioSaida, nomeBaseGeo);
+    char *geoUnderLine = strchr(nomeBaseGeo, '/');
+    while (geoUnderLine != NULL) {
+        *geoUnderLine = '_';
+        geoUnderLine = strchr(nomeBaseGeo, '/');
+    }
+
+    char caminhoSvgGeo[2048];
+    snprintf(caminhoSvgGeo, 2048, "%s%s.svg", diretorioSaida, nomeBaseGeo);
     
     FILE *svgGeo = fopen(caminhoSvgGeo, "w");
     if (svgGeo != NULL) {
@@ -113,15 +119,21 @@ int main(int argc, char *argv[]) {
         char nomeBaseQry[TAM_MAX_NOME];
         strncpy(nomeBaseQry, nomeArquivoQry, sizeof(nomeBaseQry)-1);
         removerExtensao(nomeBaseQry);
+
+        char *qryUnderLine = strchr(nomeBaseQry, '/');
+        while (qryUnderLine != NULL) {
+            *qryUnderLine = '_';
+            qryUnderLine = strchr(nomeBaseQry, '/');
+        }
+
+        char caminhoTxt[2048];
+        char caminhoSvgQry[2048];
         
-        char caminhoTxt[TAM_MAX_CAMINHO];
-        char caminhoSvgQry[TAM_MAX_CAMINHO];
-        
-        snprintf(caminhoTxt, TAM_MAX_CAMINHO, "%s%s-%s.txt", diretorioSaida, nomeBaseGeo, nomeBaseQry);
-        snprintf(caminhoSvgQry, TAM_MAX_CAMINHO, "%s%s-%s.svg", diretorioSaida, nomeBaseGeo, nomeBaseQry);
-        
+        snprintf(caminhoTxt, 2048, "%s%s-%s.txt", diretorioSaida, nomeBaseGeo, nomeBaseQry);
+        snprintf(caminhoSvgQry, 2048, "%s%s-%s.svg", diretorioSaida, nomeBaseGeo, nomeBaseQry);
+
         processarQry(caminhoCompletoQry, caminhoTxt, chao);
-        
+
         FILE *svgQry = fopen(caminhoSvgQry, "w");
         if (svgQry != NULL) {
             iniciaSvg(svgQry);
